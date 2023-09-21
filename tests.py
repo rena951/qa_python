@@ -109,7 +109,7 @@ class TestBooksCollector:
         collector.add_new_book(book_name)
         collector.add_book_in_favorites(book_name)
 
-        assert len(collector.favorites) == 1 and collector.favorites[0] == book_name
+        assert collector.get_list_of_favorites_books() == ['Непобедимый']
 
     def test_delete_book_from_favorites_add_and_delete_favorites_book_book_deleted(self):
         collector = BooksCollector()
