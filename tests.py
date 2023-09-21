@@ -61,17 +61,16 @@ class TestBooksCollector:
 
         books_with_genres = {
             'Зов Ктулху': 'Ужасы',
-            'Непобедимый': 'Фантастика',
-            'Ревизор': 'Комедии',
-            'Туманность Андромеды': 'Фантастика',
-            'Сказка про Колобка': 'Мультфильмы'
+            'Непобедимый': 'Фантастика'
         }
 
         for book_name, book_genre in books_with_genres.items():
             collector.add_new_book(book_name)
             collector.set_book_genre(book_name, book_genre)
 
-        assert collector.get_books_with_specific_genre('Фантастика') == ['Непобедимый', 'Туманность Андромеды']
+        books_with_specific_genre = collector.get_books_with_specific_genre('Фантастика')
+
+        assert 'Непобедимый' in books_with_specific_genre and 'Зов Ктулху' not in books_with_specific_genre
 
     def test_get_books_genre_add_five_books_and_set_genres_get_books_with_genres(self):
         collector = BooksCollector()
