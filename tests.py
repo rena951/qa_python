@@ -121,7 +121,7 @@ class TestBooksCollector:
 
         collector.delete_book_from_favorites(book_name)
 
-        assert collector.favorites == []
+        assert collector.get_list_of_favorites_books() == []
 
     def test_get_list_of_favorites_books_add_three_books_in_favorites_get_added_books(self):
         collector = BooksCollector()
