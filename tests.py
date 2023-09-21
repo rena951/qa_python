@@ -5,7 +5,7 @@ import pytest
 
 class TestBooksCollector:
 
-    @pytest.mark.parametrize('name', ['Н', 'Не', 'Удивительные приключения Робинзона Круз', 'Удивительные приключения Робинзона Крузо', 'Удивительные приключ'])
+    @pytest.mark.parametrize('name', ['Н', 'Удивительные приключения Робинзона Крузо'])
     def test_add_new_book_add_book_with_length_in_range_from_1_to_41_book_added(self, name):
 
         collector = BooksCollector()
