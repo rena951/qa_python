@@ -21,7 +21,7 @@ class TestBooksCollector:
 
         collector.add_new_book(name)
 
-        assert name not in collector.get_books_genre()
+        assert len(collector.get_books_genre()) == 0
 
     def test_add_new_book_add_two_books(self):
 
@@ -55,7 +55,7 @@ class TestBooksCollector:
 
         assert collector.get_book_genre(book_name) == ''
 
-    def test_get_books_with_specific_genre_add_five_books_and_set_genres_get_books_with_expected_genre(self):
+    def test_get_books_with_specific_genre_add_two_books_and_set_genres_get_books_with_expected_genre(self):
 
         collector = BooksCollector()
 
@@ -72,7 +72,7 @@ class TestBooksCollector:
 
         assert 'Непобедимый' in books_with_specific_genre and 'Зов Ктулху' not in books_with_specific_genre
 
-    def test_get_books_genre_add_five_books_and_set_genres_get_books_with_genres(self):
+    def test_get_books_genre_add_book_and_set_genre_get_book_with_genres(self):
         collector = BooksCollector()
 
         book_name = 'Ревизор'
@@ -111,7 +111,7 @@ class TestBooksCollector:
 
         assert collector.get_list_of_favorites_books() == ['Непобедимый']
 
-    def test_delete_book_from_favorites_add_and_delete_favorites_book_book_deleted(self):
+    def test_delete_book_from_favorites_add_and_delete_favorite_book_book_deleted(self):
         collector = BooksCollector()
 
         book_name = 'Непобедимый'
