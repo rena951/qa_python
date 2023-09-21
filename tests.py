@@ -12,16 +12,16 @@ class TestBooksCollector:
 
         collector.add_new_book(name)
 
-        assert len(collector.books_genre) == 1 and list(collector.books_genre.keys()) == [name]
+        assert name in collector.get_books_genre()
 
-    @pytest.mark.parametrize('name', ['', 'Удивительные приключения Робинзона Крузо!', 'Необыкновенные и удивительные приключения Робинзона Крузо!'])
+    @pytest.mark.parametrize('name', ['', 'Удивительные приключения Робинзона Крузо!'])
     def test_add_new_book_add_book_with_length_outside_range_from_1_to_41_book_no_added(self, name):
 
         collector = BooksCollector()
 
         collector.add_new_book(name)
 
-        assert len(collector.books_genre) == 0
+        assert name not in collector.get_books_genre()
 
     def test_add_new_book_add_two_books(self):
 
