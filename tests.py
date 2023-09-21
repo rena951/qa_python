@@ -42,7 +42,7 @@ class TestBooksCollector:
         collector.add_new_book(book_name)
         collector.set_book_genre(book_name, book_genre)
 
-        assert len(collector.books_genre) == 1 and collector.books_genre[book_name] == book_genre
+        assert collector.get_book_genre(book_name) == book_genre
 
     def test_set_book_genre_add_book_and_set_genre_not_from_genre_list_genre_is_not_set(self):
 
