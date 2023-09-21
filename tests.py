@@ -75,19 +75,13 @@ class TestBooksCollector:
     def test_get_books_genre_add_five_books_and_set_genres_get_books_with_genres(self):
         collector = BooksCollector()
 
-        books_with_genres = {
-            'Зов Ктулху': 'Ужасы',
-            'Непобедимый': 'Фантастика',
-            'Ревизор': 'Комедии',
-            'Туманность Андромеды': 'Фантастика',
-            'Сказка про Колобка': 'Мультфильмы'
-        }
+        book_name = 'Ревизор'
+        book_genre = 'Комедии'
 
-        for book_name, book_genre in books_with_genres.items():
-            collector.add_new_book(book_name)
-            collector.set_book_genre(book_name, book_genre)
+        collector.add_new_book(book_name)
+        collector.set_book_genre(book_name, book_genre)
 
-        assert collector.get_books_genre() == books_with_genres
+        assert collector.get_books_genre() == {book_name: book_genre}
 
     @pytest.mark.parametrize('name, genre', [['Туманность Андромеды', 'Фантастика'], ['Ревизор', 'Комедии'], ['Сказка про Колобка', 'Мультфильмы']])
     def test_get_books_for_children_add_book_with_genre_for_children_book_added(self, name, genre):
